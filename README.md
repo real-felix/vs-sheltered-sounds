@@ -1,6 +1,6 @@
 # Sheltered Sounds
 
-A client-only mod for **Vintage Story 1.22.7 / .NET 10** that keeps the vanilla cave music and ambient drones out of enclosed rooms, including underground homes, cellars, and greenhouses.
+A client-only mod for **Vintage Story 1.22 / .NET 10** that keeps the vanilla cave music and ambient drones out of enclosed rooms, including underground homes, cellars, and greenhouses.
 
 While you are inside, the Cave Mix cannot take over the music. A normal song already playing continues; otherwise the game's normal music selection and silence still apply. The mod does not force surface music to play underground or change the music frequency setting.
 
@@ -18,7 +18,7 @@ Use `/debug rooms hi` in a world where you have permission to inspect enclosure 
 
 ## Build and verify
 
-Install a **.NET 10 SDK** and Vintage Story **1.22.7**. macOS defaults to `/Applications/Vintage Story.app`. For another installation, set `VINTAGE_STORY` to the directory containing `VintagestoryAPI.dll`, `Mods/`, and `Lib/`.
+Install a **.NET 10 SDK** and Vintage Story **1.22.0 or later**. The current build and test setup uses **1.22.7**. macOS defaults to `/Applications/Vintage Story.app`. For another installation, set `VINTAGE_STORY` to the directory containing `VintagestoryAPI.dll`, `Mods/`, and `Lib/`.
 
 ```sh
 export VINTAGE_STORY="/path/to/Vintage Story" # optional on macOS
@@ -48,4 +48,4 @@ Client playtest checklist (requires an actual game session):
 - [Official essentials mod source](https://github.com/anegostudios/vsessentialsmod)
 - [Vintage Story room rules](https://wiki.vintagestory.at/Room)
 
-The runtime patches are specific to the 1.22.7 cave track implementation. Other game versions need verification before being advertised as compatible.
+The minimum game dependency is **1.22.0**. Automated checks currently run against **1.22.7**, including the cave track runtime patches.

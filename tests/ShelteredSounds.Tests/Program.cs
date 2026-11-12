@@ -38,8 +38,11 @@ internal static class Program
         var dependencies = metadata.RootElement.GetProperty("dependencies");
         Check(dependencies.TryGetProperty(essentials.ModID, out _)
             && dependencies.EnumerateObject().All(dependency =>
-                dependency.Name == essentials.ModID && dependency.Value.GetString() == essentials.Version),
-            "release dependencies match the installed Essentials mod ID and version");
+                dependency.Name == essentials.ModID
+                && System.Version.TryParse(dependency.Value.GetString(), out var minimum)
+                && System.Version.TryParse(essentials.Version, out var installed)
+                && installed >= minimum),
+            "release dependency ID and minimum version are satisfied by installed Essentials");
 
         var harmony = new Harmony("shelteredsounds.tests");
         bool previousCaveMusic = CaveMusicTrack.ShouldPlayCaveMusic;
