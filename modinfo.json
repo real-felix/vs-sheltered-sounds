@@ -4,12 +4,11 @@
   "name": "Sheltered Sounds",
   "description": "Keeps cave music and cave ambience out of enclosed rooms, including cellars and greenhouses.",
   "authors": ["Felix"],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "side": "Client",
   "requiredOnClient": false,
   "requiredOnServer": false,
   "dependencies": {
-    "game": "1.22.7",
-    "essentials": "1.22.7"
+    "game": "1.22.7"
   }
 }

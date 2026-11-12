@@ -8,5 +8,6 @@
     <Reference Include="VSEssentials"><HintPath>$(VintageStoryPath)/Mods/VSEssentials.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="0Harmony"><HintPath>$(VintageStoryPath)/Lib/0Harmony.dll</HintPath><Private>false</Private></Reference>
     <AssemblyMetadata Include="VintageStoryPath" Value="$(VintageStoryPath)" />
+    <None Include="../../modinfo.json" Link="modinfo.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

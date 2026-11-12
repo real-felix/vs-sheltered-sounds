@@ -8,7 +8,9 @@ If you enter a room while cave audio is playing, it fades out over half a second
 
 ## Install
 
-Copy `artifacts/shelteredsounds-1.0.0.zip` into the **Mods folder in your Vintage Story data directory**, then restart the client. Install only on your own client; multiplayer servers and other players do not need the mod. There is no configuration file.
+Copy `artifacts/shelteredsounds-1.0.1.zip` into the **Mods folder in your Vintage Story data directory**, remove any older Sheltered Sounds ZIP, then restart the client. Install only on your own client; multiplayer servers and other players do not need the mod. There is no configuration file.
+
+Version 1.0.1 fixes the 1.0.0 loading error requesting `essentials v1.22.7`. The built-in Essentials mod registers with the dependency ID `game`; it is already covered by the game dependency.
 
 ## What counts as a room?
 

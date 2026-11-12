@@ -1,6 +1,7 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
+using System.Text.Json;
 using HarmonyLib;
 using ShelteredSounds;
 using Vintagestory.API.Client;
@@ -30,6 +31,16 @@ internal static class Program
     [MethodImpl(MethodImplOptions.NoInlining)]
     private static void RunGameAssemblyChecks()
     {
+        // Assembly names and display names are not dependency IDs: VSEssentials
+        // registers as "game". Check metadata against the actual installed mod.
+        var essentials = typeof(RoomRegistry).Assembly.GetCustomAttribute<ModInfoAttribute>()!;
+        using var metadata = JsonDocument.Parse(File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "modinfo.json")));
+        var dependencies = metadata.RootElement.GetProperty("dependencies");
+        Check(dependencies.TryGetProperty(essentials.ModID, out _)
+            && dependencies.EnumerateObject().All(dependency =>
+                dependency.Name == essentials.ModID && dependency.Value.GetString() == essentials.Version),
+            "release dependencies match the installed Essentials mod ID and version");
+
         var harmony = new Harmony("shelteredsounds.tests");
         bool previousCaveMusic = CaveMusicTrack.ShouldPlayCaveMusic;
         Room? room = null;
