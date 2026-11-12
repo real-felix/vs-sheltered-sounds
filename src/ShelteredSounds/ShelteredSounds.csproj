@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>ShelteredSounds</AssemblyName>
     <RootNamespace>ShelteredSounds</RootNamespace>
-    <Version>1.0.1</Version>
+    <Version>1.0.0</Version>
     <PackageDirectory>$(MSBuildProjectDirectory)/../../artifacts/shelteredsounds</PackageDirectory>
   </PropertyGroup>
   <ItemGroup>
