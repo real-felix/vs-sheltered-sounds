@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ShelteredSounds</AssemblyName>
+    <RootNamespace>ShelteredSounds</RootNamespace>
+    <Version>1.0.0</Version>
+    <PackageDirectory>$(MSBuildProjectDirectory)/../../artifacts/shelteredsounds</PackageDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="VintagestoryAPI"><HintPath>$(VintageStoryPath)/VintagestoryAPI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="VSEssentials"><HintPath>$(VintageStoryPath)/Mods/VSEssentials.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(VintageStoryPath)/Lib/0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <InternalsVisibleTo Include="ShelteredSounds.Tests" />
+  </ItemGroup>
+  <Target Name="Package" DependsOnTargets="Build">
+    <RemoveDir Directories="$(PackageDirectory)" />
+    <Copy SourceFiles="$(TargetPath);../../modinfo.json;../../README.md" DestinationFolder="$(PackageDirectory)" />
+    <ZipDirectory SourceDirectory="$(PackageDirectory)" DestinationFile="$(MSBuildProjectDirectory)/../../artifacts/shelteredsounds-$(Version).zip" Overwrite="true" />
+  </Target>
+</Project>
